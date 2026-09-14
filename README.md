@@ -4,7 +4,7 @@ A static, GitHub Pages-ready site with a citywide Zurich guide and an interactiv
 
 ## Publish free with GitHub Pages
 
-1. Create a new GitHub repository, for example `zurich-on-a-budget`.
+1. Create a new GitHub repository, for example `zurich-budget`.
 2. Upload the contents of this folder to the repository root (`index.html`, `styles.css`, `app.js`, and this README).
 3. In the GitHub repository, go to **Settings → Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
