@@ -1,4 +1,4 @@
-# Zurich on a Budget
+# Zurich Budget
 
 A static, GitHub Pages-ready site with a citywide Zurich guide and an interactive CHF budget calculator.
 
