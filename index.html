@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A citywide, practical guide to spending well in Zurich without paying the default Zurich price." />
+    <title>Zurich on a Budget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dual-home.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Zurich on a Budget home">Z<span>·</span>B</a>
+      <nav aria-label="Primary navigation">
+        <a href="#guide">City guide</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <p class="eyebrow">A citywide field guide</p>
+        <h1>Zurich on<br /><em>a Budget.</em></h1>
+        <p class="lede">Spend on the parts of Zurich that are actually worth it. Make everyday spending efficient, not joyless.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#calculator">Build my budget <span>↓</span></a>
+          <a class="button button-quiet" href="#guide">Explore the guide</a>
+        </div>
+        <p class="fact-line"><span>Research checked</span> 14 September 2026 <span class="dot">•</span> Prices marked as fixed facts have a source link</p>
+      </section>
+
+      <section class="principles section" aria-label="The approach">
+        <article><span>01</span><h2>Spend deliberately</h2><p>Put money into a great meal, an exhibition, a concert, a lake evening or a day trip - not interchangeable convenience.</p></article>
+        <article><span>02</span><h2>Use the city well</h2><p>Zurich is different by neighbourhood. Shop, eat and spend in the right area rather than wherever you happen to be.</p></article>
+        <article><span>03</span><h2>Make the maths visible</h2><p>Track a few useful categories. A weekly cap is more useful than regretting a monthly total.</p></article>
+      </section>
+
+      <section id="guide" class="guide section">
+        <div class="section-heading"><p class="eyebrow">City guide</p><h2>Where to go. Where to spend.</h2><p>Choose a topic or filter for a neighbourhood.</p></div>
+        <div class="guide-controls">
+          <div class="topic-tabs" role="tablist" aria-label="Guide topics">
+            <button class="tab active" data-topic="all" role="tab">All</button>
+            <button class="tab" data-topic="food" role="tab">Food & drink</button>
+            <button class="tab" data-topic="culture" role="tab">Culture & outdoors</button>
+            <button class="tab" data-topic="transport" role="tab">Transport & trips</button>
+            <button class="tab" data-topic="life" role="tab">Living well</button>
+          </div>
+          <label class="select-label">Neighbourhood <select id="area-filter"><option value="all">All Zurich</option><option value="kreis34">Kreis 3 & 4</option><option value="west">Zurich West</option><option value="centre">Centre & Old Town</option><option value="lake">Lake & Enge</option><option value="citywide">Citywide</option></select></label>
+        </div>
+        <div id="guide-cards" class="guide-grid"></div>
+      </section>
+
+      <section class="spending-map section">
+        <div class="section-heading"><p class="eyebrow">The spending map</p><h2>Use each part of Zurich differently.</h2></div>
+        <div class="map-grid">
+          <article><p class="area">Kreis 3 & 4</p><h3>Everyday Zurich</h3><p>Use for groceries, casual meals, cafes and the Helvetiaplatz market. Spend on a local dinner or a specific event; skip aimless bar-hopping and daily convenience shops.</p></article>
+          <article><p class="area">Zurich West</p><h3>Workday value</h3><p>Use for a Lidl run, free contemporary art and industrial riverside walks. Spend on a concert or a planned dinner; not premium lunch because it is nearby.</p></article>
+          <article><p class="area">Old Town</p><h3>Walk first, then choose</h3><p>Use for churches, galleries and a museum. Pay for one historic meal or drink if you want it; skip generic Swiss menus and souvenir browsing.</p></article>
+          <article><p class="area">Lake & Enge</p><h3>Free luxury</h3><p>Use for a picnic, swim, walk or sunset. Pay for a lakeside meal only when the view is the point; bring water and avoid tourist add-ons.</p></article>
+        </div>
+      </section>
+
+      <section id="calculator" class="calculator section">
+        <div class="calculator-intro"><p class="eyebrow">Budget calculator</p><h2>Make your Zurich number.</h2><p>Enter a monthly target and choose the life you actually intend to live. The calculator gives you a weekly cap and shows what is doing the work.</p><div class="preset-row" aria-label="Budget presets"><button class="preset active" data-preset="balanced">Lean but enjoyable</button><button class="preset" data-preset="lean">Lean</button><button class="preset" data-preset="social">Social / flexible</button></div></div>
+        <div class="calculator-panel">
+          <div class="dual-home">
+            <div class="dual-home-heading"><div><p class="mini-eyebrow">Private dual-home check</p><h3>Can two homes work?</h3></div><p>Gross-income view only. It does not estimate tax, pension deductions or health insurance.</p></div>
+            <div class="dual-home-inputs">
+              <label>Annual salary in CHF<input id="annual-salary" type="number" min="0" step="1000" placeholder="e.g. 161000" /></label>
+              <label>Salary payments per year<select id="salary-payments"><option value="12">12</option><option value="13">13</option></select></label>
+              <label>Zurich rent per month<input id="zurich-rent" type="number" min="0" step="50" placeholder="e.g. 2600" /></label>
+              <label>Other-home costs per month in EUR<input id="other-home-eur" type="number" min="0" step="50" placeholder="e.g. 3000" /></label>
+              <label>EUR to CHF rate<input id="eur-chf" type="number" min="0" step="0.001" placeholder="e.g. 0.945" /></label>
+            </div>
+            <div class="dual-home-results">
+              <div><span>Monthly gross pay</span><strong id="monthly-gross">-</strong></div>
+              <div><span>Total housing / month</span><strong id="total-housing">-</strong></div>
+              <div><span>Housing share of gross</span><strong id="housing-share">-</strong></div>
+              <div><span>Gross after housing</span><strong id="after-housing">-</strong></div>
+            </div>
+          </div>
+          <div class="budget-total"><label for="monthly-budget">Monthly spend target <span>excluding rent and insurance</span></label><div class="money-input"><span>CHF</span><input id="monthly-budget" type="number" min="0" step="10" value="1350" /></div><p id="weekly-total">CHF 312 / week</p></div>
+          <div id="budget-inputs" class="budget-inputs"></div>
+          <div class="calculation-summary"><div><span>Allocated</span><strong id="allocated">CHF 1,350</strong></div><div><span>Left to assign</span><strong id="remaining">CHF 0</strong></div><div class="lifestyle-result"><span>Gross after housing and lifestyle target</span><strong id="after-lifestyle">-</strong></div></div>
+          <button id="reset-budget" class="reset-button">Reset current preset</button>
+        </div>
+      </section>
+
+      <section class="week-plan section">
+        <p class="eyebrow">A useful default</p><h2>A good Zurich week for CHF 300-ish.</h2>
+        <div class="week-grid"><article><span>Mon - Thu</span><h3>Low-friction weekdays</h3><p>Home food, packed lunch or a supermarket counter, walking/cycling when easy. Save the paid choice.</p></article><article><span>One workday</span><h3>Choose your lunch</h3><p>Spend CHF 20-30 on a meal you want, rather than several forgettable lunches.</p></article><article><span>One evening</span><h3>Pick an anchor</h3><p>A free exhibition and one good bar, or dinner with friends. Budget the journey home in the plan.</p></article><article><span>Weekend</span><h3>Use Zurich outside</h3><p>Lake, river, city walk or a trip bought early. Add one paid thing that makes the day memorable.</p></article></div>
+      </section>
+
+      <section id="sources" class="sources section">
+        <div class="section-heading"><p class="eyebrow">Useful links</p><h2>Verify before you buy.</h2><p>Opening hours, promotions and fares change. These are the official sources behind the fixed facts in this guide.</p></div>
+        <ul class="source-list">
+          <li><a href="https://www.lidl.ch/s/de-CH/filialfinder/zuerich/" target="_blank" rel="noreferrer">Lidl Zurich branch finder <span>↗</span></a></li>
+          <li><a href="https://www.wirtschaftsfoerderung.stadt-zuerich.ch/de/stadtleben/veranstaltungen-und-bewilligungen/gewerbe-und-maerkte/maerkte/lebensmittelmaerkte.html" target="_blank" rel="noreferrer">City food markets <span>↗</span></a></li>
+          <li><a href="https://migrosmuseum.ch/en/museum" target="_blank" rel="noreferrer">Migros Museum <span>↗</span></a></li>
+          <li><a href="https://www.landesmuseum.ch/en/your-visit/tickets" target="_blank" rel="noreferrer">Swiss National Museum <span>↗</span></a></li>
+          <li><a href="https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-und-badeanlagen/sommerbaeder/oberer-letten.html" target="_blank" rel="noreferrer">Oberer Letten river pool <span>↗</span></a></li>
+          <li><a href="https://www.zvv.ch/en/travelcards-and-tickets/tickets/single-tickets.html" target="_blank" rel="noreferrer">ZVV fares <span>↗</span></a></li>
+          <li><a href="https://www.sbb.ch/en/offers/find-saver-offers" target="_blank" rel="noreferrer">SBB saver offers <span>↗</span></a></li>
+          <li><a href="https://www.stadt-zuerich.ch/trinkwasser" target="_blank" rel="noreferrer">Zurich drinking water <span>↗</span></a></li>
+          <li><a href="https://zurichguru.com/guide/free-and-cheap-things-to-do-in-zurich/" target="_blank" rel="noreferrer">ZurichGuru free and cheap guide <span>↗</span></a></li>
+          <li><a href="https://www.zuerich.com/en/visit/nature/planet-trail-hike-from-uetliberg-to-felsenegg" target="_blank" rel="noreferrer">Uetliberg Planet Trail <span>↗</span></a></li>
+          <li><a href="https://www.toogoodtogo.com/de-ch" target="_blank" rel="noreferrer">Too Good To Go Switzerland <span>↗</span></a></li>
+          <li><a href="https://www.uzh.ch/en/explore/museums.html" target="_blank" rel="noreferrer">University of Zurich museums and collections <span>↗</span></a></li>
+          <li><a href="https://www.uzh.ch/en/explore/museums/botanischer-garten.html" target="_blank" rel="noreferrer">UZH Botanical Garden <span>↗</span></a></li>
+          <li><a href="https://www.stadt-zuerich.ch/stadtgaertnerei.html" target="_blank" rel="noreferrer">City Gardening Centre <span>↗</span></a></li>
+          <li><a href="https://www.kunsthaus.ch/en/besuch-planen/besucherinfos/" target="_blank" rel="noreferrer">Kunsthaus visitor information <span>↗</span></a></li>
+          <li><a href="https://www.apartments.zuerich/en/blog/zurich-on-a-budget/" target="_blank" rel="noreferrer">Apartments Zürich budget guide inspiration <span>↗</span></a></li>
+          <li><a href="https://www.nomadicmatt.com/travel-guides/switzerland-travel-tips/zurich/" target="_blank" rel="noreferrer">Nomadic Matt Zurich guide inspiration <span>↗</span></a></li>
+        </ul>
+      </section>
+    </main>
+    <footer><p>Zurich on a Budget <span>·</span> Built for Lee <span>·</span> Prices in Swiss francs</p><a href="#top">Back to top ↑</a></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
