@@ -10,11 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="dual-home.css" />
+    <link rel="stylesheet" href="kalkbreite.css" />
   </head>
   <body>
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Zurich Budget home">Z<span>·</span>B</a>
       <nav aria-label="Primary navigation">
+        <a href="#kalkbreite">Your base</a>
         <a href="#guide">City guide</a>
         <a href="#calculator">Calculator</a>
         <a href="#sources">Sources</a>
@@ -31,6 +33,60 @@
           <a class="button button-quiet" href="#guide">Explore the guide</a>
         </div>
         <p class="fact-line"><span>Research checked</span> 14 September 2026 <span class="dot">•</span> Prices marked as fixed facts have a source link</p>
+      </section>
+
+      <section id="kalkbreite" class="local-base section">
+        <div class="section-heading local-heading">
+          <p class="eyebrow">Your local base · from 24 September</p>
+          <h2>Kalkbreite, made easy.</h2>
+          <p>Kalkbreitestrasse 41 puts you on the Kreis 3 / 4 border: a few minutes from the Kalkbreite stop and Bahnhof Wiedikon. Use this as the practical layer beneath the citywide guide.</p>
+        </div>
+
+        <div class="local-start">
+          <div>
+            <p class="local-kicker">Start here</p>
+            <h3>Live departures from your two useful stops</h3>
+            <p>Times refresh automatically. Kalkbreite is best for trams and buses; Bahnhof Wiedikon is the nearby S-Bahn option. Treat the ZVV planner as the final word for a specific journey.</p>
+          </div>
+          <a class="local-action" href="https://www.zvv.ch/en/timetable-and-information.html" target="_blank" rel="noreferrer">Open ZVV planner ↗</a>
+        </div>
+        <div class="departure-grid" aria-live="polite">
+          <article class="departure-card">
+            <div class="departure-title"><div><p class="local-kicker">~3 min walk</p><h3>Kalkbreite / Bahnhof Wiedikon</h3></div><span class="live-pill"><i></i> Live</span></div>
+            <div id="kalkbreite-departures" class="departure-list"><p class="departure-status">Loading departures…</p></div>
+          </article>
+          <article class="departure-card">
+            <div class="departure-title"><div><p class="local-kicker">~5 min walk</p><h3>Bahnhof Wiedikon</h3></div><span class="live-pill"><i></i> Live</span></div>
+            <div id="wiedikon-departures" class="departure-list"><p class="departure-status">Loading departures…</p></div>
+          </article>
+        </div>
+        <p id="departure-note" class="departure-note">Live timetable and forecast data via the Swiss public-transport feed. Refreshes every minute; a missing delay is not a guarantee of an on-time service.</p>
+
+        <div class="local-section-title"><p class="eyebrow">Get there without thinking</p><h3>Your regular routes</h3></div>
+        <div class="local-route-grid">
+          <article class="local-route-card"><p class="route-mode">WORK</p><h3>On HQ · Zürich West</h3><p>Start with the live planner from home. Line 32 is the useful westbound corridor via Hardbrücke; the best exact option varies by time of day.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=On+AG,+F%C3%B6rrlibuckstrasse+190,+8005+Z%C3%BCrich&travelmode=transit" target="_blank" rel="noreferrer">Live route from home ↗</a></article>
+          <article class="local-route-card"><p class="route-mode">CITY</p><h3>Hauptbahnhof</h3><p>Tram 3 reaches Bahnhofplatz / HB in roughly eight minutes. Great for the station, Old Town edge, and train connections.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Z%C3%BCrich+Hauptbahnhof&travelmode=transit" target="_blank" rel="noreferrer">Live route from home ↗</a></article>
+          <article class="local-route-card"><p class="route-mode">FLIGHT</p><h3>Airport</h3><p>Walk to Wiedikon and use the live planner for the current airport connection. It is more reliable than memorising one line or interchange.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Zurich+Airport&travelmode=transit" target="_blank" rel="noreferrer">Live route from home ↗</a></article>
+          <article class="local-route-card"><p class="route-mode">LATE</p><h3>Home after a night out</h3><p>Check the ZVV night network on Friday and Saturday. Save the route before you leave rather than defaulting to a taxi.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Z%C3%BCrich+Hauptbahnhof&destination=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&travelmode=transit" target="_blank" rel="noreferrer">Plan the way home ↗</a></article>
+        </div>
+
+        <div class="local-section-title"><p class="eyebrow">Walkable everyday options</p><h3>Spend close to home, deliberately.</h3></div>
+        <div class="local-nearby-grid">
+          <article class="nearby-card"><p class="nearby-type">LUNCH · KALKBREITE 8</p><h3>Kalkucina</h3><p>Reliable occasional workday lunch: the fixed-price lunch is CHF 22 on Tuesday to Thursday. Use it as a conscious sit-down meal, not the daily default.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Kalkucina,+Kalkbreitestrasse+8,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://www.kalkbreite.net/kalkucina" target="_blank" rel="noreferrer">Menu & hours ↗</a></article>
+          <article class="nearby-card"><p class="nearby-type">QUICK LUNCH · KALKBREITE 10</p><h3>Simply Soup</h3><p>A nearby weekday lunch option when you need something better than a convenience-shop meal. Check the daily menu and opening times before setting out.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Simply+Soup,+Kalkbreitestrasse+10,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://simplysoup.ch/" target="_blank" rel="noreferrer">Today’s menu ↗</a></article>
+          <article class="nearby-card"><p class="nearby-type">TOP-UP SHOP · BADENERSTRASSE 171</p><h3>BachserMärt</h3><p>Very convenient for a few good ingredients, but not the weekly low-cost anchor: buy your main shop at Lidl or Aldi and use this for a specific top-up.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=BachserM%C3%A4rt,+Badenerstrasse+171,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://www.bachsermaert.ch/filialen/kalkbreite" target="_blank" rel="noreferrer">Hours & range ↗</a></article>
+          <article class="nearby-card"><p class="nearby-type">DINNER · KALKBREITE</p><h3>Bebek</h3><p>Mezze and Middle Eastern food in the complex. Pick it for a proper social meal or brunch, rather than treating its location as a reason to spend every evening.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Bebek,+Badenerstrasse+171,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://www.bebek.ch/" target="_blank" rel="noreferrer">Menu & bookings ↗</a></article>
+          <article class="nearby-card"><p class="nearby-type">CASUAL FOOD · KALKBREITE 1</p><h3>Oh My Greek</h3><p>A predictable local takeaway / casual meal for nights you do not want to cook. The value move is one main, not delivery add-ons.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Oh+My+Greek,+Kalkbreitestrasse+1,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://ohmygreek.ch/" target="_blank" rel="noreferrer">Menu & hours ↗</a></article>
+          <article class="nearby-card"><p class="nearby-type">FILM · BADENERSTRASSE 173</p><h3>Kino Houdini</h3><p>Your genuinely local cinema: use the live programme for a planned evening instead of drifting into a pricier, less memorable night out.</p><a href="https://www.google.com/maps/dir/?api=1&origin=Kalkbreitestrasse+41,+8003+Z%C3%BCrich&destination=Kino+Houdini,+Badenerstrasse+173,+8003+Z%C3%BCrich&travelmode=walking" target="_blank" rel="noreferrer">Walk there ↗</a><a href="https://www.kinohoudini.ch/" target="_blank" rel="noreferrer">Current programme ↗</a></article>
+        </div>
+
+        <div class="local-section-title"><p class="eyebrow">Calendar while you are there</p><h3>Worth opening a tab for.</h3></div>
+        <div class="local-events-grid">
+          <article class="event-card"><p>24 SEP · 18:00</p><h3>Kalkbreite meets Kraftwerk1</h3><p>A local community evening at Cafeteria Kalkbreite—literally on your doorstep. Check the organiser’s listing for details.</p><a href="https://www.kalkbreite.net/veranstaltungen" target="_blank" rel="noreferrer">Kalkbreite calendar ↗</a></article>
+          <article class="event-card"><p>24 SEP – 4 OCT</p><h3>Zurich Film Festival</h3><p>Tickets and programme are live. Use it for one intentional cinema night; festival ground is at Sechseläutenplatz, so plan the tram home before the late screening.</p><a href="https://zff.com/en/overview-the-22nd-zff" target="_blank" rel="noreferrer">Programme & tickets ↗</a></article>
+          <article class="event-card"><p>26 – 27 SEP</p><h3>Open House Zürich</h3><p>Free architecture access around the city. Some visits need reservation, while others are first-come, first-served—plan a compact route rather than criss-crossing town.</p><a href="https://openhouse-zuerich.org/" target="_blank" rel="noreferrer">Plan visits ↗</a></article>
+          <article class="event-card"><p>THROUGH 27 SEP</p><h3>Zurich Design Weeks</h3><p>Free and ticketed design events across the city. Use the final weekend after arrival for a self-guided neighbourhood route.</p><a href="https://www.zuerich.com/en/events-nightlife/event-highlights/zurich-design-weeks" target="_blank" rel="noreferrer">Festival details ↗</a></article>
+        </div>
       </section>
 
       <section class="principles section" aria-label="The approach">
@@ -106,6 +162,10 @@
           <li><a href="https://www.landesmuseum.ch/en/your-visit/tickets" target="_blank" rel="noreferrer">Swiss National Museum <span>↗</span></a></li>
           <li><a href="https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-und-badeanlagen/sommerbaeder/oberer-letten.html" target="_blank" rel="noreferrer">Oberer Letten river pool <span>↗</span></a></li>
           <li><a href="https://www.zvv.ch/en/travelcards-and-tickets/tickets/single-tickets.html" target="_blank" rel="noreferrer">ZVV fares <span>↗</span></a></li>
+          <li><a href="https://www.zvv.ch/en/timetable-and-information.html" target="_blank" rel="noreferrer">ZVV live timetable and network information <span>↗</span></a></li>
+          <li><a href="https://transport.opendata.ch/docs.html" target="_blank" rel="noreferrer">Swiss public-transport departure feed <span>↗</span></a></li>
+          <li><a href="https://culture.on.com/where-we-are/zurich/" target="_blank" rel="noreferrer">On Zürich location <span>↗</span></a></li>
+          <li><a href="https://www.kalkbreite.net/veranstaltungen" target="_blank" rel="noreferrer">Kalkbreite event calendar <span>↗</span></a></li>
           <li><a href="https://www.sbb.ch/en/offers/find-saver-offers" target="_blank" rel="noreferrer">SBB saver offers <span>↗</span></a></li>
           <li><a href="https://www.stadt-zuerich.ch/trinkwasser" target="_blank" rel="noreferrer">Zurich drinking water <span>↗</span></a></li>
           <li><a href="https://zurichguru.com/guide/free-and-cheap-things-to-do-in-zurich/" target="_blank" rel="noreferrer">ZurichGuru free and cheap guide <span>↗</span></a></li>

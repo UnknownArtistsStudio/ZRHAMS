@@ -108,6 +108,55 @@ function updateDualHome() {
   document.getElementById('after-lifestyle').textContent = salary ? money(monthlyGross - totalHousing - monthlyLifestyle) : '-';
 }
 
+const departureStops = [
+  { id: '8591218', target: 'kalkbreite-departures', name: 'Kalkbreite / Bahnhof Wiedikon' },
+  { id: '8503011', target: 'wiedikon-departures', name: 'Bahnhof Wiedikon' }
+];
+
+const escapeHtml = value => String(value).replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
+
+function plannedOrPredictedDeparture(item) {
+  return item.stop.prognosis?.departure || item.stop.departure;
+}
+
+function renderDepartures(targetId, board) {
+  const target = document.getElementById(targetId);
+  const now = Date.now();
+  const upcoming = board
+    .filter(item => new Date(plannedOrPredictedDeparture(item)).getTime() >= now - 30000)
+    .slice(0, 5);
+
+  if (!upcoming.length) {
+    target.innerHTML = '<p class="departure-status">No upcoming departures returned. Open ZVV for the live board.</p>';
+    return;
+  }
+
+  target.innerHTML = upcoming.map(item => {
+    const departure = new Date(plannedOrPredictedDeparture(item));
+    const minutes = Math.max(0, Math.round((departure.getTime() - now) / 60000));
+    const line = `${item.category || ''} ${item.number || ''}`.trim();
+    const delay = Number(item.stop.delay || 0);
+    const delayText = delay > 0 ? `<span class="departure-delay">+${delay} min</span>` : '';
+    return `<div class="departure-row"><span class="departure-line">${escapeHtml(line)}</span><span class="departure-destination">${escapeHtml(item.to || 'Destination unavailable')}</span><span class="departure-time">${minutes === 0 ? 'now' : `${minutes} min`}${delayText}</span></div>`;
+  }).join('');
+}
+
+async function loadLiveDepartures() {
+  const note = document.getElementById('departure-note');
+  try {
+    const responses = await Promise.all(departureStops.map(stop => fetch(`https://transport.opendata.ch/v1/stationboard?id=${stop.id}&limit=10`)));
+    if (responses.some(response => !response.ok)) throw new Error('Departure feed unavailable');
+    const boards = await Promise.all(responses.map(response => response.json()));
+    boards.forEach((board, index) => renderDepartures(departureStops[index].target, board.stationboard || []));
+    note.textContent = `Live timetable and forecast data via the Swiss public-transport feed. Updated ${new Intl.DateTimeFormat('en-CH', { hour: '2-digit', minute: '2-digit' }).format(new Date())}; refreshes every minute.`;
+  } catch (error) {
+    departureStops.forEach(stop => {
+      document.getElementById(stop.target).innerHTML = '<p class="departure-status">Live departures are unavailable right now. Open ZVV for the current board.</p>';
+    });
+    note.textContent = 'Live timetable data is temporarily unavailable. Use the ZVV planner for the current board.';
+  }
+}
+
 document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => { document.querySelector('.tab.active').classList.remove('active'); tab.classList.add('active'); renderGuide(); }));
 document.getElementById('area-filter').addEventListener('change', renderGuide);
 document.querySelectorAll('.preset').forEach(button => button.addEventListener('click', () => { document.querySelector('.preset.active').classList.remove('active'); button.classList.add('active'); currentPreset = button.dataset.preset; document.getElementById('monthly-budget').value = presets[currentPreset].total; renderInputs(presets[currentPreset].values); }));
@@ -117,3 +166,5 @@ document.getElementById('salary-payments').addEventListener('change', updateDual
 document.getElementById('reset-budget').addEventListener('click', () => { document.getElementById('monthly-budget').value = presets[currentPreset].total; renderInputs(presets[currentPreset].values); });
 renderGuide();
 renderInputs(presets.balanced.values);
+loadLiveDepartures();
+window.setInterval(loadLiveDepartures, 60000);

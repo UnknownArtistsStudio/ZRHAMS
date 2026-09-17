@@ -1,0 +1,92 @@
+.local-base {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  background: #eef5f3;
+}
+
+.local-heading { max-width: 49rem; }
+.local-heading h2 { max-width: 35rem; }
+.local-start, .departure-card, .local-route-card, .nearby-card, .event-card {
+  border: 1px solid rgba(16, 44, 67, .14);
+  background: #fff;
+}
+
+.local-start {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: 2.5rem;
+}
+
+.local-start h3, .local-section-title h3 { font-size: clamp(1.45rem, 2vw, 2rem); margin: .25rem 0 .55rem; }
+.local-start p:not(.local-kicker) { max-width: 46rem; margin: 0; color: #496273; }
+.local-kicker, .route-mode, .nearby-type, .event-card > p:first-child {
+  margin: 0;
+  font: 500 .68rem/1.3 'DM Mono', monospace;
+  letter-spacing: .09em;
+  color: #637d76;
+  text-transform: uppercase;
+}
+.local-action {
+  flex: 0 0 auto;
+  display: inline-flex;
+  padding: .85rem 1.05rem;
+  color: #fff;
+  background: #102c43;
+  text-decoration: none;
+  font-weight: 700;
+}
+.local-action:hover { background: #31536b; }
+
+.departure-grid, .local-route-grid, .local-nearby-grid, .local-events-grid { display: grid; gap: 1rem; margin-top: 1rem; }
+.departure-grid, .local-route-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.local-nearby-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.local-events-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.departure-card { padding: 1.45rem; }
+.departure-title { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+.departure-title h3 { margin: .28rem 0 1rem; font-size: 1.12rem; }
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .32rem .55rem;
+  color: #24594f;
+  background: #e5f5ee;
+  font: 500 .67rem/1 'DM Mono', monospace;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.live-pill i { width: .42rem; height: .42rem; border-radius: 50%; background: #299569; }
+.departure-list { border-top: 1px solid rgba(16, 44, 67, .12); }
+.departure-row { display: grid; grid-template-columns: 3rem 1fr auto; align-items: center; gap: .7rem; padding: .68rem 0; border-bottom: 1px solid rgba(16, 44, 67, .1); }
+.departure-row:last-child { border-bottom: 0; }
+.departure-line { font: 500 .78rem/1 'DM Mono', monospace; color: #102c43; }
+.departure-destination { min-width: 0; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.departure-time { text-align: right; font: 700 .78rem/1 'DM Mono', monospace; color: #102c43; }
+.departure-delay { display: block; margin-top: .22rem; color: #b34a38; font-weight: 500; font-size: .61rem; }
+.departure-status { margin: 1rem 0 0; color: #637d76; font-size: .9rem; }
+.departure-note { margin: .9rem 0 0; color: #637d76; font-size: .78rem; }
+
+.local-section-title { margin-top: 4.75rem; }
+.local-route-card, .nearby-card, .event-card { padding: 1.55rem; }
+.local-route-card h3, .nearby-card h3, .event-card h3 { margin: .45rem 0 .6rem; font-size: 1.22rem; }
+.local-route-card p:not(.route-mode), .nearby-card p:not(.nearby-type), .event-card p:not(:first-child) { margin: 0 0 1rem; color: #496273; font-size: .91rem; line-height: 1.6; }
+.local-route-card a, .nearby-card a, .event-card a { color: #102c43; font-size: .84rem; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.nearby-card a + a { margin-left: .8rem; }
+.event-card { min-height: 14rem; display: flex; flex-direction: column; }
+.event-card a { margin-top: auto; }
+
+@media (max-width: 900px) {
+  .local-nearby-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .local-events-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .local-base { padding-top: 5rem; padding-bottom: 5rem; }
+  .local-start { display: block; padding: 1.35rem; }
+  .local-action { margin-top: 1.2rem; }
+  .departure-grid, .local-route-grid, .local-nearby-grid, .local-events-grid { grid-template-columns: 1fr; }
+  .departure-card, .local-route-card, .nearby-card, .event-card { padding: 1.25rem; }
+}
