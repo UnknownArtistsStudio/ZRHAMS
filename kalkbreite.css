@@ -4,6 +4,13 @@
   background: #eef5f3;
 }
 
+.brand {
+  font-size: 1.08rem;
+  letter-spacing: .025em;
+}
+
+.brand span { letter-spacing: 0; }
+
 .local-heading { max-width: 49rem; }
 .local-heading h2 { max-width: 35rem; }
 .local-start, .departure-card, .local-route-card, .nearby-card, .event-card {

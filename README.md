@@ -1,10 +1,10 @@
-# Zurich Budget
+# ZRHAMS
 
-A static, GitHub Pages-ready site with a citywide Zurich guide and an interactive CHF budget calculator.
+A static, GitHub Pages-ready lifestyle guide for a Zürich × Amsterdam life. It combines a local Zürich guide, live nearby departures and a private two-home CHF/EUR budget calculator.
 
 ## Publish free with GitHub Pages
 
-1. Create a new GitHub repository, for example `zurich-budget`.
+1. Create a new GitHub repository, for example `zrhams`.
 2. Upload the contents of this folder to the repository root (`index.html`, `styles.css`, `app.js`, and this README).
 3. In the GitHub repository, go to **Settings → Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
