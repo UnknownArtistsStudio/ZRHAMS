@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4500" height="1350" viewBox="0 0 4500 1350">
+  <style>
+    @font-face { font-family: ArchivoLocal; src: url('file:///private/tmp/Archivo-Variable.ttf') format('truetype'); }
+    text { font-family: ArchivoLocal, Archivo, sans-serif; font-size: 820px; font-weight: 900; letter-spacing: -48px; fill: #000000; }
+  </style>
+  <text x="2250" y="934" text-anchor="middle">ZRHAMS</text>
+</svg>
